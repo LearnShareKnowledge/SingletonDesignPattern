@@ -5,17 +5,15 @@ import java.io.Serializable;
  */
 public class MySingleton implements Serializable {
 
-    private static final long serialVersionUID = -1093810940935189395L;
+    private static final long serialVersionUID = 44L;
 
     private static MySingleton mySingleton ;
 
     private MySingleton()
     {
-        if(mySingleton!=null)
-        {
-            throw new IllegalStateException("Already created !!!");
-        }
+        throw new IllegalStateException("Already instantiated");
     }
+
 
     public static synchronized MySingleton getInstance()
     {
@@ -36,11 +34,11 @@ public class MySingleton implements Serializable {
         return mySingleton;
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException("Clone not supported!!!");
+    public Object clone () throws CloneNotSupportedException {
+        throw new CloneNotSupportedException("Clone not supported !!!");
     }
 
-    private static Class getClass(String classname) throws ClassNotFoundException
+    public static Class getClass(String className) throws ClassNotFoundException
     {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
@@ -49,7 +47,8 @@ public class MySingleton implements Serializable {
             classLoader = MySingleton.class.getClassLoader();
         }
 
-        return classLoader.loadClass(classname);
-
+        return classLoader.loadClass(className);
     }
+
+
 }
