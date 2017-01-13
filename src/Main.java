@@ -5,10 +5,11 @@ public class Main {
 
     public static void main (String [] args)
     {
-       // MySingleton.mySingleton
+        //MySingleton.mySingleton;
 
-       // MySingleton secondInstance = new MySingleton();
+        //MySingleton secondInstance = new MySingleton();
 
-       // MySingleton.getInstance();
+        MySingleton.getInstance();
+
     }
 }
